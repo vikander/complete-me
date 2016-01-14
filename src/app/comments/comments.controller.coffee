@@ -15,7 +15,6 @@ angular.module 'completeMe'
       return
 
 
-
     showToastr = ->
       toastr.info 'Fork <a href="https://github.com/Swiip/generator-gulp-angular" target="_blank"><b>generator-gulp-angular</b></a>'
       vm.classAnimation = ''
@@ -76,8 +75,7 @@ angular.module 'completeMe'
 
     vm.addNewComment = ->
       vm.newComment.id = vm.comments.length + 1
-      vm.newComment.author.website = vm.newComment.author.website.replace(/https?:\/\/(www.)?/g, '')
-      vm.newComment.content = markdown(vm.newComment.content)
+      vm.newComment.author.website = vm.newComment.author.website.replace(/https?:\/\/(www.)?/g, '')      
       vm.newComment.loved = false
       vm.comments.push vm.newComment
       vm.newComment = {}
@@ -94,8 +92,8 @@ angular.module 'completeMe'
       {
         id: 1
         author:
-          name: 'Jan-Kanty Pawelski'
-          email: 'jan.kanty.pawelski@gmail.com'
+          name: 'Yim Apichai'
+          email: 'yim.apichai@gmail.com'
           website: 'pawelski.io'
         content: 'I made it! My awesome angular comment system. What do you think?'
         loved: false
@@ -112,8 +110,8 @@ angular.module 'completeMe'
       {
         id: 3
         author:
-          name: 'Jan-Kanty Pawelski'
-          email: 'jan.kanty.pawelski@gmail.com'
+          name: 'Yim Apichai'
+          email: 'yim.apichai@gmail.com'
           website: 'pawelski.io'
         content: '<span class="reply">@Tomasz Jakut</span> Thanks man. I tried hard.'
         loved: false

@@ -33,3 +33,376 @@ $icon-font-path: "../../bower_components/bootstrap-sass/assets/fonts/bootstrap/"
  */
 // injector
 // endinjector
+
+
+
+// My styles
+
+
+@import url(//fonts.googleapis.com/css?family=Ubuntu:300,700);
+
+* {
+  margin: 0;
+  padding: 0;
+  background: scroll transparent none 0 0 repeat;
+  border: 0 none #000;
+  outline: 0 none #000;
+  border-radius: 0;
+  box-shadow: none;
+  color: inherit;
+  font-family: inherit;
+  font-size: inherit;
+  font-style: inherit;
+  font-variant: inherit;
+  font-weight: inherit;
+  text-align: inherit;
+  text-decoration: inherit;
+  text-transform: inherit;
+  line-height: inherit;
+  vertical-align: top;
+  z-index: inherit;
+  cursor: inherit;
+  -webkit-tap-highlight-color: transparent;
+  box-sizing: border-box;
+  &:before, &:after {
+    box-sizing: border-box;
+  }
+}
+
+body {  
+  color: #000;
+  font-size: 16px;
+  font-family: sans-serif;
+  text-align: left;
+  line-height: 1.4;
+  z-index: 0;
+  cursor: default;
+}
+
+input, textarea {
+  -webkit-user-select: text;
+  -moz-user-select: text;
+  -ms-user-select: text;
+  user-select: text;
+  cursor: text;
+  -webkit-appearance: none;
+  -moz-appearance: textfield;
+}
+
+a, button, [type="button"], [type="checkbox"], [type="radio"], [for] {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  cursor: pointer;
+}
+
+input[disabled], select[disabled], textarea[disabled], button[disabled] {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  cursor: not-allowed;
+}
+
+html {
+  height: 100%;
+}
+
+body {
+  height: 100%;
+  background: url('../assets/images/stardust.png');
+  // For Retina screen
+  // background-size: 344px 344px;
+  font-family: Ubuntu, sans-serif;
+  font-weight: 300;
+  // max-width: 840px;
+}
+
+.jumbotron {
+	background: transparent;
+}
+
+ul {
+  padding: 0 80px 0 80px;
+  margin-left: 80px;
+  list-style: none;
+  li {
+  	width: -webkit-calc(100% - 80px);
+  	width: -moz-calc(100% - 80px);
+  	width: calc(100% - 80px);	  	
+    background: #fff;
+    border-radius: 2px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+    position: relative;
+    &:not(:first-child) {
+      margin-top: 20px;
+    }
+    &:before {
+      content: "";
+      border-width: 10px 10px 10px 0;
+      border-style: solid;
+      border-color: transparent #fff;
+      position: absolute;
+      top: 10px;
+      left: -10px;
+    }
+    header {
+      border-bottom: 1px solid #e5e5e5;
+      display: -webkit-box;
+      display: -webkit-flex;
+      display: -ms-flexbox;
+      display: flex;
+      * {
+        display: block;
+      }
+      h1 {
+        padding-left: 20px;
+        font-weight: normal;
+        line-height: 40px;
+        -webkit-box-flex: 1;
+        -webkit-flex-grow: 1;
+        -ms-flex-positive: 1;
+        flex-grow: 1;
+        a {
+          text-decoration: none;
+          display: inline-block;
+        }
+        &.author {
+          color: #9a3;
+          * {
+            color: #9a3;
+          }
+          &:after {
+            content: "Author";
+            margin: 10px 0 10px 10px;
+            padding: 0 5px;
+            background: #9a3;
+            border-radius: 2px;
+            color: #fff;
+            font-size: 10px;
+            font-weight: normal;
+            text-transform: uppercase;
+            line-height: 20px;
+            position: absolute;
+          }
+        }
+      }
+      button {
+        padding: 10px;
+        svg {
+          width: 20px;
+          height: 20px;
+          * {
+            fill: #999;
+          }
+        }
+        &:hover svg * {
+          fill: #666;
+        }
+        &.loved svg * {
+          fill: #f66;
+        }
+      }
+      img {
+        width: 60px;
+        height: 60px;
+        background: #fff;
+        border: 4px solid #fff;
+        border-radius: 50%;
+        box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+        position: absolute;
+        top: 0;        
+      }
+    }
+    article {
+      padding: 20px;
+      white-space: pre-line;
+      overflow-x: hidden;
+      .reply {
+        color: #9a3;
+      }
+      strong {
+        font-weight: 500;
+      }
+      em {
+        font-style: italic;
+      }
+      a {
+        text-decoration: underline;
+        &:hover {
+          text-decoration: none;
+        }
+      }
+      code {
+        font-family: "Source Code Pro", monospace;
+      }
+    }
+  }
+}
+
+.even {
+	right: -80px;
+}
+
+.odd {
+	left: -80px;
+}
+
+.comments-inner-container {
+	padding-bottom: 96px;
+}
+
+form {
+  margin-top: 20px;
+  padding: 20px 160px 20px 160px;
+  background: transparent;
+  border-radius: 2px;
+  // box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+  position: relative;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  &:before {
+    content: "";
+    border-width: 10px 10px 10px 0;
+    border-style: solid;
+    border-color: transparent rgba(229, 229, 229, 0.5);
+    position: absolute;
+    top: 30px;
+    left: 150px;
+  }
+  input, textarea {
+    padding: 9px 20px;
+    width: 100%;
+    background: rgba(229, 229, 229, 0.5);
+    display: block;
+  }
+  input:not(:first-child), textarea:not(:first-child) {
+    margin-top: 2px;
+  }
+  input[type='email'], textarea[type='email'] {
+    width: 50%;
+    border-right: 1px solid #fff;
+  }
+  input[type='url'], textarea[type='url'] {
+    width: 50%;
+    border-left: 1px solid #fff;
+  }
+  input::-webkit-input-placeholder, textarea::-webkit-input-placeholder, input::-moz-placeholder, textarea::-moz-placeholder, input:-ms-input-placeholder, textarea:-ms-input-placeholder, input::placeholder, textarea::placeholder {
+    color: #666;
+  }
+  input.ng-dirty.ng-invalid, textarea.ng-dirty.ng-invalid {
+    color: #f66;
+    &::-webkit-input-placeholder {
+      color: #f66;
+    }
+  }
+  input.ng-dirty.ng-invalid, textarea.ng-dirty.ng-invalid {
+    color: #f66;
+    &::-moz-placeholder {
+      color: #f66;
+    }
+  }
+  input.ng-dirty.ng-invalid, textarea.ng-dirty.ng-invalid {
+    color: #f66;
+    &:-ms-input-placeholder {
+      color: #f66;
+    }
+  }
+  input.ng-dirty.ng-invalid {
+    color: #f66;
+    &::placeholder {
+      color: #f66;
+    }
+  }
+  textarea {
+    &.ng-dirty.ng-invalid {
+      color: #f66;
+      &::placeholder {
+        color: #f66;
+      }
+    }
+    padding: 20px;
+    height: 120px;
+    resize: none;
+  }
+  p {
+    margin-top: 10px;
+    padding: 10px 0;
+    width: 50%;
+    a {
+      text-decoration: underline;
+      &:hover {
+        text-decoration: none;
+      }
+    }
+  }
+  button {
+    margin: 10px auto 0;
+    padding: 10px 0;
+    width: 50%;
+    background: #9a3;
+    border-radius: 2px;
+    color: #fff;
+    font-weight: normal;
+    text-align: center;
+    display: block;
+  }
+  img {
+    width: 60px;
+    height: 60px;
+    background: rgba(229, 229, 229, 0.5);
+    border: 4px solid rgba(229, 229, 229, 0.5);
+    border-radius: 50%;
+    position: absolute;
+    top: 20px;
+    left: 80px;
+  }
+}
+
+@media (max-width: 440px) {
+  ul {
+    padding: 0;
+    li {
+      &:before {
+        content: none;
+      }
+      header {
+        img {
+          clip: rect(0, 0, 0, 0);
+        }
+        h1.author:after {
+          content: none;
+        }
+      }
+    }
+  }
+  form {
+    padding-left: 20px;
+    &:before {
+      content: none;
+    }
+    img {
+      clip: rect(0, 0, 0, 0);
+    }
+    input {
+      padding: 10px;
+    }
+    textarea {
+      padding: 10px;
+      height: 80px;
+    }
+    p, button {
+      margin: 10px 10px 0;
+      width: 100%;
+    }
+    p {
+      padding: 0;
+    }
+  }
+}
