@@ -429,8 +429,18 @@ form {
   outline: 0;
 }
 
-.product-search {
+.user-search {
   max-width: 500px;
+  padding: 0px;
+}
+
+
+.user-search .list-group-item {
+  width: 100%;
+  margin: 0px;
+  &:before {
+    border: none;
+  }
 }
 
 .product-search .list-group-item.active {

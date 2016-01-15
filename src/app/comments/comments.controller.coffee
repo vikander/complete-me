@@ -86,9 +86,11 @@ angular.module 'completeMe'
       newCommentAvatar.src = vm.getGravatar(vm.newComment.email)
 
     vm.searchPeople = (term) ->
-      alert 'hiya'
+      console.log '========='
+      console.log term
       peopleList = []
-      $http.get('people.json').then (response) ->
+      $http.get('https://raw.githubusercontent.com/jeff-collins/ment.io/master/ment.io/peopledata.json').then (response) ->
+        console.log response
         angular.forEach response.data, (item) ->
           if item.name.toUpperCase().indexOf(term.toUpperCase()) >= 0
             peopleList.push item
@@ -97,9 +99,9 @@ angular.module 'completeMe'
         $q.when peopleList
 
     vm.getPeopleText = (item) ->
-      alert 'hiyo'
+      
       # note item.label is sent when the typedText wasn't found
-      '[~<i>' + (item.name or item.label) + '</i>]'
+      '@' + (item.name or item.label)
 
     authorEmail = 'yim.apichai@gmail.com'
 
@@ -107,6 +109,14 @@ angular.module 'completeMe'
       'wtf': 'what the fudge!?'
       'lol': 'lots of licks'
       '(smile)': '<img src="http://a248.e.akamai.net/assets.github.com/images/icons/emoji/smile.png"' + ' height="20" width="20">'
+
+
+    vm.folks = [
+      { label: 'Joe' }
+      { label: 'Mike' }
+      { label: 'Diane' }
+    ]
+
 
     vm.comments = [
       {
