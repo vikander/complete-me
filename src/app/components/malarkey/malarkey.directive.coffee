@@ -13,7 +13,7 @@ angular.module 'completeMe'
       getContributors = ->
         githubContributor.getContributors(10).then (data) ->
           vm.contributors = data
-          vm.contributors
+          vm.contributors = []
 
       vm.contributors = []
       activate()

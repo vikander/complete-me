@@ -1,18 +1,11 @@
+<div>
+  <acme-navbar creation-date="forum.creationDate"></acme-navbar>
+</div>
 <div class="container">
-<!--   <div>
-    <acme-navbar creation-date="forum.creationDate"></acme-navbar>
-  </div> -->
   <div class="jumbotron text-center">
-    <h1>'Allo, 'Allo!</h1>
-    <p class="lead">
-      <img src="assets/images/yeoman.png" alt="I'm Yeoman"><br>
-      Always a pleasure scaffolding your apps.
-    </p>
-    <p class="animated infinite" ng-class="forum.classAnimation">
-      <button type="button" class="btn btn-lg btn-success" ng-click="forum.showToastr()">Splendid Toastr</button>
-    </p>
+    <h1>Hypothes.is</h1>
     <p>
-    With ♥ thanks to the contributions of<acme-malarkey extra-values="['Yeoman', 'Gulp', 'Angular']"></acme-malarkey>
+    Use Hypothesis to<acme-malarkey extra-values="['discuss', 'collaborate', 'organize', 'research', 'take notes']"></acme-malarkey>
     </p>
   </div>
   <svg viewBox="0 0 100 100" style="display:none">
@@ -23,12 +16,12 @@
   </svg>
   <div class="comments-inner-container">
   <ul ng-if="forum.comments.length">
-    <li ng-repeat="comment in forum.comments">
+    <li ng-repeat="comment in forum.comments" ng-class-even="'comment-even'" ng-class-odd="'comment-odd'">
       <header>
-        <h1 ng-if="comment.author.website.length == 0" ng-class="{ author: isAuthor(comment.author.email) }">
+        <h1 ng-if="comment.author.website.length == 0" ng-class="{ author: isAuthor(comment.author.email) }" class="comment-name-tag">
           {{ comment.author.name }}
         </h1>
-        <h1 ng-if="comment.author.website.length &gt; 0" ng-class="{ author: isAuthor(comment.author.email) }">
+        <h1 ng-if="comment.author.website.length > 0" ng-class="{ author: isAuthor(comment.author.email) }" class="comment-name-tag">
           <a ng-href="//{{ comment.author.website }}">
             {{ comment.author.name }}
           </a>
@@ -50,16 +43,15 @@
   </ul>
   <form name="form" ng-submit="form.$valid && forum.addNewComment()" novalidate="novalidate">
 
-
+    <input type="text" placeholder="First and second name" ng-pattern="/[a-zA-Z.,-]+/" ng-model="forum.newComment.author.name" required="required"/>
     <textarea mentio 
       mentio-typed-text="typedTerm"
-      mentio-macros="forum.macros"      
-      ng-model="forum.peeps"
-      mentio-id="'htmlContent'">
+      mentio-macros="forum.macros"            
+      mentio-id="'htmlContent'"
+      placeholder="Comment"
+      ng-model="forum.newComment.content"
+      required="required">
     </textarea>
-    
-    <input type="text" placeholder="First and second name" ng-pattern="/[a-zA-Z.,-]+/" ng-model="forum.newComment.author.name" required="required"/>
-    <textarea placeholder="Comment" ng-model="forum.newComment.content" required="required"></textarea>
     <input type="email" placeholder="Email" ng-model="forum.newComment.author.email" required="required"/>
     <input type="url" placeholder="Website" ng-model="forum.newComment.author.website"/>
     <button type="submit">
@@ -86,9 +78,9 @@
   <script type="text/ng-template" id="/people-mentions.tpl">
       <ul class="list-group user-search">
           <li mentio-menu-item="person" ng-repeat="person in items" class="list-group-item">
-              <img ng-src="{{person.imageUrl}}" class="user-photo">
+              <img ng-src="{{person.avatar_url}}" class="user-photo">
               <span class="text-primary" ng-bind-html="person.name | mentioHighlight:typedTerm:'menu-highlighted' | unsafe"></span>
-              <em class="text-muted" ng-bind="person.bio | words:5"></em>
+              <em class="text-muted" ng-bind="person.username | words:5"></em>
           </li>
       </ul>
   </script>

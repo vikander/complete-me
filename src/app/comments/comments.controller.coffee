@@ -89,7 +89,7 @@ angular.module 'completeMe'
       console.log '========='
       console.log term
       peopleList = []
-      $http.get('https://raw.githubusercontent.com/jeff-collins/ment.io/master/ment.io/peopledata.json').then (response) ->
+      $http.get('https://raw.githubusercontent.com/vikander/complete-me/master/data.json').then (response) ->
         console.log response
         angular.forEach response.data, (item) ->
           if item.name.toUpperCase().indexOf(term.toUpperCase()) >= 0
@@ -124,16 +124,16 @@ angular.module 'completeMe'
         author:
           name: 'Yim Apichai'
           email: 'yim.apichai@gmail.com'
-          website: 'pawelski.io'
+          website: 'http://skogman.github.io'
         content: 'I made it! My awesome angular comment system. What do you think?'
         loved: false
       }
       {
         id: 2
         author:
-          name: 'Tomasz Jakut'
-          email: 'comandeer@comandeer.pl'
-          website: 'comandeer.pl'
+          name: 'Lena Gunn'
+          email: 'lenazun@hypothe.is'
+          website: 'http://hypothes.is'
         content: 'Nice looking. Good job dude ;)'
         loved: true
       }
@@ -142,17 +142,17 @@ angular.module 'completeMe'
         author:
           name: 'Yim Apichai'
           email: 'yim.apichai@gmail.com'
-          website: 'pawelski.io'
+          website: 'skogman.github.io'
         content: '<span class="reply">@Tomasz Jakut</span> Thanks man. I tried hard.'
         loved: false
       }
       {
         id: 4
         author:
-          name: 'Grzegorz Bąk'
-          email: 'szary.elf@gmail.com'
-          website: 'gregbak.com'
-        content: 'Third! Amazing system man! By the way check my new website: <a href="//gregbak.com">http://gregbak.com</a>.'
+          name: 'Lena Gunn'
+          email: 'lenazun@hypothe.is'
+          website: 'http://hypothes.is'
+        content: 'Third! Amazing system man! By the way check my new website: <a href="//hypothes.is">http://hypothes.is</a>.'
         loved: false
       }
     ]
