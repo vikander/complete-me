@@ -12,7 +12,8 @@
     "moment": "~2.10.6",
     "animate.css": "~3.4.0",
     "angular": "~1.4.2",
-    "ment.io": "~0.9.24"
+    "ment.io": "~0.9.24",
+    "q": "1.0.1"
   },
   "devDependencies": {
     "angular-mocks": "~1.4.2"

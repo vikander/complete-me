@@ -1,5 +1,5 @@
 angular.module 'completeMe'
-  .controller 'CommentsController', ($scope, $timeout, $http, $sce, webDevTec, toastr) ->
+  .controller 'CommentsController', ($scope, $timeout, $http, $q, $sce, webDevTec, toastr) ->
     'ngInject'
     vm = this
 
@@ -86,33 +86,27 @@ angular.module 'completeMe'
       newCommentAvatar.src = vm.getGravatar(vm.newComment.email)
 
     vm.searchPeople = (term) ->
+      alert 'hiya'
       peopleList = []
-      $http.get('https://raw.githubusercontent.com/jeff-collins/ment.io/master/ment.io/peopledata.json').then (response) ->
+      $http.get('people.json').then (response) ->
         angular.forEach response.data, (item) ->
           if item.name.toUpperCase().indexOf(term.toUpperCase()) >= 0
             peopleList.push item
           return
-        $scope.people = peopleList
+        vm.people = peopleList
         $q.when peopleList
 
     vm.getPeopleText = (item) ->
+      alert 'hiyo'
       # note item.label is sent when the typedText wasn't found
       '[~<i>' + (item.name or item.label) + '</i>]'
 
     authorEmail = 'yim.apichai@gmail.com'
 
-    vm.people = [
-      { label: 'Joe' }
-      { label: 'Mike' }
-      { label: 'Diane' }
-    ]
-
     vm.macros =
-      'brb': 'Be right back'
-      'omw': 'On my way'
+      'wtf': 'what the fudge!?'
+      'lol': 'lots of licks'
       '(smile)': '<img src="http://a248.e.akamai.net/assets.github.com/images/icons/emoji/smile.png"' + ' height="20" width="20">'
-
-
 
     vm.comments = [
       {
@@ -159,3 +153,16 @@ angular.module 'completeMe'
     vm.showToastr = showToastr
     activate()
     return
+
+.filter 'words', ->
+  (input, words) ->
+    if isNaN(words)
+      return input
+    if words <= 0
+      return ''
+    if input
+      inputWords = input.split(/\s+/)
+      if inputWords.length > words
+        input = inputWords.slice(0, words).join(' ') + '…'
+    input
+
