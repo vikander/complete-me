@@ -1,5 +1,5 @@
 angular.module 'completeMe'
-  .controller 'CommentsController', ($scope, $timeout, $sce, webDevTec, toastr) ->
+  .controller 'CommentsController', ($scope, $timeout, $http, $sce, webDevTec, toastr) ->
     'ngInject'
     vm = this
 
@@ -75,7 +75,7 @@ angular.module 'completeMe'
 
     vm.addNewComment = ->
       vm.newComment.id = vm.comments.length + 1
-      vm.newComment.author.website = vm.newComment.author.website.replace(/https?:\/\/(www.)?/g, '')      
+      vm.newComment.author.website = vm.newComment.author.website.replace(/https?:\/\/(www.)?/g, '')
       vm.newComment.loved = false
       vm.comments.push vm.newComment
       vm.newComment = {}
@@ -85,8 +85,34 @@ angular.module 'completeMe'
       newCommentAvatar = document.getElementById('newCommentAvatar')
       newCommentAvatar.src = vm.getGravatar(vm.newComment.email)
 
+    vm.searchPeople = (term) ->
+      peopleList = []
+      $http.get('https://raw.githubusercontent.com/jeff-collins/ment.io/master/ment.io/peopledata.json').then (response) ->
+        angular.forEach response.data, (item) ->
+          if item.name.toUpperCase().indexOf(term.toUpperCase()) >= 0
+            peopleList.push item
+          return
+        $scope.people = peopleList
+        $q.when peopleList
+
+    vm.getPeopleText = (item) ->
+      # note item.label is sent when the typedText wasn't found
+      '[~<i>' + (item.name or item.label) + '</i>]'
 
     authorEmail = 'yim.apichai@gmail.com'
+
+    vm.people = [
+      { label: 'Joe' }
+      { label: 'Mike' }
+      { label: 'Diane' }
+    ]
+
+    vm.macros =
+      'brb': 'Be right back'
+      'omw': 'On my way'
+      '(smile)': '<img src="http://a248.e.akamai.net/assets.github.com/images/icons/emoji/smile.png"' + ' height="20" width="20">'
+
+
 
     vm.comments = [
       {

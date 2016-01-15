@@ -1,1 +1,1 @@
-angular.module 'completeMe', ['ngAnimate', 'ui.router', 'ui.bootstrap', 'toastr']
+angular.module 'completeMe', ['ngAnimate', 'ui.router', 'ui.bootstrap', 'toastr', 'mentio']

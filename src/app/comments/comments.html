@@ -49,6 +49,19 @@
     </li>
   </ul>
   <form name="form" ng-submit="form.$valid && forum.addNewComment()" novalidate="novalidate">
+
+                       
+    <textarea mentio
+        mentio-typed-term="typedTerm"        
+        mentio-require-leading-space="true"
+        mentio-select-not-found="true"
+        class="editor form-control"
+        mentio-id="'htmlContent'"
+        id="htmlContent"
+        ng-model="forum.htmlContent">
+    </textarea>
+    <!-- mentio-macros="forum.macros" -->
+
     <input type="text" placeholder="First and second name" ng-pattern="/[a-zA-Z.,-]+/" ng-model="forum.newComment.author.name" required="required"/>
     <textarea placeholder="Comment" ng-model="forum.newComment.content" required="required"></textarea>
     <input type="email" placeholder="Email" ng-model="forum.newComment.author.email" required="required"/>
@@ -58,5 +71,24 @@
     </button>
     <img id="newCommentAvatar" ng-src="{{ forum.getGravatar(forum.newComment.author.email) }}"/>
   </form>
+        <mentio-menu
+          mentio-for="'htmlContent'"
+          mentio-trigger-char="'@'"
+          mentio-items="forum.people"
+          mentio-template-url="/people-mentions.tpl"
+          mentio-search="forum.searchPeople(term)"
+          mentio-select="forum.getPeopleText(item)">
+        </mentio-menu>
   </div>
 </div>
+
+<!-- Template -->
+<script type="text/ng-template" id="/people-mentions.tpl">
+    <ul class="list-group user-search">
+        <li mentio-menu-item="person" ng-repeat="person in items" class="list-group-item">
+            <img ng-src="{{person.imageUrl}}" class="user-photo">
+            <span class="text-primary" ng-bind-html="person.name | mentioHighlight:typedTerm:'menu-highlighted' | unsafe"></span>
+            <em class="text-muted" ng-bind="person.bio | words:5"></em>
+        </li>
+    </ul>
+</script>
