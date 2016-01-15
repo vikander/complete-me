@@ -1,10 +1,7 @@
 angular.module 'completeMe'
-  .controller 'CommentsController', ($scope, $timeout, $http, $q, $sce, webDevTec, toastr) ->
+  .controller 'CommentsController', ($scope, $timeout, $http, $activityIndicator, $q, $sce, webDevTec, toastr) ->
     'ngInject'
     vm = this
-
-
-
 
     activate = ->
       getWebDevTec()
@@ -86,6 +83,7 @@ angular.module 'completeMe'
       newCommentAvatar.src = vm.getGravatar(vm.newComment.email)
 
     vm.searchPeople = (term) ->
+      $activityIndicator.startAnimating()
       console.log '========='
       console.log term
       peopleList = []
