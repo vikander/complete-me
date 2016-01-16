@@ -12,3 +12,10 @@ A simple commenting system in Angular showcasing autocomplete functionality, a s
 - Clone and $npm install && bower install
 
 - gulp serve
+
+## Additional information
+
+This project was created exclusively for Hypothes.is as part of a job interview process.
+For any question or inquires, kindly contact:
+
+### yim.apichai@gmail.com
