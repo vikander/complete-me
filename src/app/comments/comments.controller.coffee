@@ -123,7 +123,7 @@ angular.module 'completeMe'
           name: 'Yim Apichai'
           email: 'yim.apichai@gmail.com'
           website: 'http://skogman.github.io'
-        content: 'I made it! My awesome angular comment system. What do you think?'
+        content: 'I finished the assignment, I hope I did allright!'
         loved: false
       }
       {
@@ -132,7 +132,7 @@ angular.module 'completeMe'
           name: 'Lena Gunn'
           email: 'lenazun@hypothe.is'
           website: 'http://hypothes.is'
-        content: 'Nice looking. Good job dude ;)'
+        content: 'Great! Let me evaluate your work...'
         loved: true
       }
       {
@@ -141,7 +141,7 @@ angular.module 'completeMe'
           name: 'Yim Apichai'
           email: 'yim.apichai@gmail.com'
           website: 'skogman.github.io'
-        content: '<span class="reply">@Tomasz Jakut</span> Thanks man. I tried hard.'
+        content: '<span class="reply">@Lena Gunn</span> Thanks, I appreciate it :)'
         loved: false
       }
       {
@@ -150,7 +150,7 @@ angular.module 'completeMe'
           name: 'Lena Gunn'
           email: 'lenazun@hypothe.is'
           website: 'http://hypothes.is'
-        content: 'Third! Amazing system man! By the way check my new website: <a href="//hypothes.is">http://hypothes.is</a>.'
+        content: 'Congratulations, you got the job!'
         loved: false
       }
     ]
