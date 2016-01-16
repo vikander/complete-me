@@ -1,5 +1,4 @@
 # Complete me
-A demo app showcasing autocomplete functionality for Hypothes.is.
 A simple commenting system in Angular showcasing autocomplete functionality, a simple commenting system, dynamic gravatar loading and validations.
 
 ## Notes
