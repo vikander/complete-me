@@ -1,6 +1,10 @@
 # Complete me
 A simple commenting system in Angular showcasing autocomplete functionality, a simple commenting system, dynamic gravatar loading and validations.
 
+
+![Complete Me](https://github.com/vikander/complete-me/blob/master/src/preview.png?raw=true "preview image")
+
+
 ## Notes
 - Prefix a query in the "comment" section with '@' to search for a user name.
 - Type a valid email with an associated gravatar in the email input to load up an avatar.
